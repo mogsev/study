@@ -13,20 +13,15 @@ public class ServerChat {
         try {
             //Create server socket
             ServerSocket serverSocket = new ServerSocket(ConfigServer.serverPort);
-            Socket socket = serverSocket.accept();
-
-            InputStream sin = socket.getInputStream();
-            OutputStream sout = socket.getOutputStream();
-            DataInputStream in = new DataInputStream(sin);
-            DataOutputStream out = new DataOutputStream(sout);
-
-            String line = null;
-
+            int i = 1; //number connection
+            //Begin listening connections
             while (true) {
-                line = in.readUTF();
-                System.out.println("Client send: " + line);
-                out.writeUTF(line);
-                out.flush();
+                Socket socket = serverSocket.accept();
+                System.out.println("Num: " + i);
+                Runnable socketThread = new ThreadedHandler(socket);
+                Thread thread = new Thread(socketThread);
+                thread.start();
+                i++;
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="study:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/study_jar</output-path>
+    <root id="archive" name="ServerChat.jar">
+      <element id="module-output" name="study" />
+    </root>
+  </artifact>
+</component>
