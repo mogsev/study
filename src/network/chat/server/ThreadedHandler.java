@@ -4,6 +4,7 @@ import network.chat.Message;
 
 import java.io.*;
 import java.net.Socket;
+import java.net.SocketException;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -25,16 +26,16 @@ public class ThreadedHandler implements Runnable {
     public void run() {
         try {
             try {
-                final ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
-                //final ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
-                Message message = null;
-                while (true) {
-                    message = (Message) inputStream.readObject();
-                    System.out.println("Echo: " + message.getMessage());
+                while (socket.isConnected()) {
+                    final ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
+                    Message message = (Message) inputStream.readObject();
+                    System.out.println(message.toString());
+                    final ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
+                    outputStream.writeObject(message);
+                    outputStream.flush();
                 }
-                // Close Streams
-                //inputStream.close();
-                //outputStream.close();
+            } catch (SocketException ex) {
+                System.out.println("Connection reset");
             } catch (EOFException ex) {
                 System.out.println("Close InputStream");
             } catch (IOException e) {

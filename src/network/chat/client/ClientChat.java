@@ -1,10 +1,11 @@
 package network.chat.client;
 
 import network.chat.Message;
+import network.chat.SocketMessenger;
 
 import java.io.*;
-import java.net.InetAddress;
 import java.net.Socket;
+import java.net.SocketException;
 import java.net.UnknownHostException;
 
 /**
@@ -14,38 +15,26 @@ public class ClientChat {
 
     public static void main(String[] args) {
         try {
-            InetAddress ipAddress = InetAddress.getByName(ConfigClient.serverAddress);
-            final Socket socket = new Socket(ipAddress, ConfigClient.serverPort);
-
-            //final ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
-            final ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
-
+            SocketMessenger socketMessenger = new SocketMessenger(new Socket(ConfigClient.serverAddress, ConfigClient.serverPort));
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            System.out.println("Input Login: ");
-            String login = reader.readLine();
-            System.out.println("Input Login: " + login);
-            String line = "";
-            //Message message = null;
             while (true) {
-                line = reader.readLine();
-                if (!line.equals("EXIT")) {
-                    outputStream.writeObject(new Message(login, line));
-                    outputStream.flush();
-                    //Message message = (Message) inputStream.readObject();
-                    //System.out.println(message.getLogin() + ": " + message.getMessage() + ", " + message.getTime().toString());
-                } else {
+                String line = reader.readLine();
+                if (line.equals("quit")) {
                     break;
                 }
+                Message message = new Message("zhenya", line);
+                socketMessenger.sendMessage(message);
+                socketMessenger.receiveMessage();
             }
-
-            outputStream.flush();
-            outputStream.close();
-            socket.close();
-
+        } catch (SocketException ex) {
+            System.out.println("Connection reset by peer: socket write error");
         } catch (UnknownHostException ex) {
             ex.printStackTrace();
         } catch (IOException ex) {
             ex.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 }
+

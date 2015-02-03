@@ -8,14 +8,14 @@ import java.util.Date;
  * Created by zhenya on 03.02.2015.
  */
 public class Message implements Serializable {
-    public static final long serialVersionUID = 1L;
+    public static final long serialVersionUID = 951753456L;
 
     private String login;
     private String message;
     private Date time;
 
     public Message () {
-        time = Calendar.getInstance().getTime();
+        this.time = Calendar.getInstance().getTime();
     }
 
     public Message(String message) {
@@ -39,6 +39,11 @@ public class Message implements Serializable {
 
     public Date getTime() {
         return this.time;
+    }
+
+    @Override
+    public String toString() {
+        return this.time + ":\t" + this.login + ": " + this.message;
     }
 
 }
