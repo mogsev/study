@@ -7,26 +7,34 @@ import java.io.Serializable;
  */
 public class Client implements Serializable {
 
+    public static final long serialVersionUID = 151753456457L;
+
     private String login;
     private String name;
     private String ipHost;
+    private boolean exist;
 
     public Client(String login, String name, String ipHost) {
         this.login = login;
         this.name = name;
         this.ipHost = ipHost;
+        this.exist = true;
     }
 
     public String getLogin() {
-        return login;
+        return this.login;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public String getIpHost() {
-        return ipHost;
+        return this.ipHost;
+    }
+
+    public boolean isExist() {
+        return this.exist;
     }
 
     @Override

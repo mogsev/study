@@ -18,6 +18,10 @@ public class CacheSocket {
         cacheMap.put(client, socket);
     }
 
+    public synchronized static void removeConnection(Client client) {
+        cacheMap.remove(client);
+    }
+
     public static ArrayList<Client> getListClient() {
         ArrayList<Client> result = new ArrayList<Client>();
         result = Collections.list(cacheMap.keys());
