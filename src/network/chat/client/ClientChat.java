@@ -24,26 +24,19 @@ public class ClientChat {
             Client client = new Client("test", "test4  full name", InetAddress.getLocalHost().getHostAddress());
             //Create Socket
             final Socket socket = new Socket(ConfigClient.serverAddress, ConfigClient.serverPort);
-            //socket.setKeepAlive(true);
+            socket.setKeepAlive(true);
             //Create SocketMessenger
             SocketMessenger socketMessenger = new SocketMessenger(client, socket);
 
-            //Create thread for input messages
-            Runnable inputHandler = new InputHandler(client, socket);
-            Thread thread = new Thread(inputHandler);
-            thread.setDaemon(true);
-            thread.start();
 
-            //Send Client info
-            if (socket.isConnected()) {
-                //socketMessenger.sendMessage(client);
-                ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
-                outputStream.writeObject(client);
-                outputStream.flush();
-            }
+            //Create thread for input messages
+            //Runnable inputHandler = new InputHandler(client, socket);
+            //Thread thread = new Thread(inputHandler);
+            //thread.setDaemon(true);
+            //thread.start();
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            while (true) {
+            while (socket.isConnected()) {
                 String line = reader.readLine();
                 if (line.equals("quit")) {
                     break;

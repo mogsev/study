@@ -5,6 +5,7 @@ import network.chat.Message;
 import network.chat.SocketMessenger;
 
 import java.io.IOException;
+import java.io.StreamCorruptedException;
 import java.net.Socket;
 
 /**
@@ -24,22 +25,27 @@ public class InputHandler implements Runnable {
     public void run() {
         try {
             SocketMessenger socketMessenger = null;
-            Object message = null;
+            Object message = new Object();
             while (socket.isConnected()) {
                 //Create input stream
                 socketMessenger = new SocketMessenger(client, socket);
-                message = socketMessenger.receiveMessage();
-                if (message instanceof Client) {
-                    System.out.println("Client");
-                    Client client = (Client) message;
-                    System.out.println(client.toString());
-                }
-                if (message instanceof Message) {
-                    Message mes = (Message) message;
-                    System.out.println("Receive message: " + mes);
+                try {
+                    message = socketMessenger.receiveMessage();
+                    if (message instanceof Client) {
+                        System.out.println("Client");
+                        Client client = (Client) message;
+                        System.out.println(client.toString());
+                    }
+                    if (message instanceof Message) {
+                        Message mes = (Message) message;
+                        System.out.println("Receive message: " + mes);
+                    }
+                } catch (StreamCorruptedException ex) {
+                    ex.printStackTrace();
                 }
             }
-        } catch (IOException ex) {
+        }
+        catch (IOException ex) {
             ex.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

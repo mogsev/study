@@ -17,7 +17,6 @@ import java.util.Scanner;
 public class ThreadedHandler implements Runnable {
 
     private final Socket socket;
-    private Client client;
 
     /**
      * Design handler
@@ -30,12 +29,14 @@ public class ThreadedHandler implements Runnable {
     @Override
     public void run() {
         try {
+            Client client = null;
+
             try {
                 while (socket.isConnected()) {
                     //Create input stream
-                    final ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
+                    ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
                     //Create output stream
-                    final ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
+                    ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
                     Object message = inputStream.readObject();
                     if (message instanceof Client) {
                         client = (Client) message;

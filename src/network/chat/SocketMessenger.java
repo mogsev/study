@@ -36,7 +36,6 @@ public class SocketMessenger implements AutoCloseable, Closeable {
     public Object receiveMessage() throws IOException, ClassNotFoundException {
         ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
         Object message = inputStream.readObject();
-        //System.out.println("Receive message: " + message.toString());
         return message;
     }
 
