@@ -10,10 +10,20 @@ import java.net.Socket;
  * Created by zhenya on 03.02.2015.
  */
 public class SocketMessenger implements AutoCloseable, Closeable {
-    private final Socket socket;
 
-    public SocketMessenger(Socket socket) {
+    private final Socket socket;
+    private final Client client;
+
+    public SocketMessenger(Client client, Socket socket) {
+        this.client = client;
         this.socket = socket;
+    }
+
+    public void sendClientInfo() throws IOException {
+        System.out.println("Send client info");
+        ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
+        outputStream.writeObject(this.client);
+        outputStream.flush();
     }
 
     public void sendMessage(Message message) throws IOException {

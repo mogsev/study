@@ -3,11 +3,18 @@ package network.chat.server;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by zhenya on 02.02.2015.
  */
 public class ServerChat extends Thread {
+
+    private Socket socket;
+
+    public ServerChat() {
+    }
 
     @Override
     public void run() {
@@ -17,12 +24,16 @@ public class ServerChat extends Thread {
             int numberConnections = 1; //number connection
             //Begin listening connections
             while (true) {
-                Socket socket = serverSocket.accept();
-                System.out.println("Number connections: " + numberConnections);
-                Runnable socketThread = new ThreadedHandler(socket);
-                Thread thread = new Thread(socketThread);
-                thread.start();
-                numberConnections++;
+                socket = serverSocket.accept();
+                if (socket.isConnected()) {
+                    System.out.println("Number connections: " + numberConnections);
+                    socket.setKeepAlive(true);
+                    Runnable socketThread = new ThreadedHandler(socket);
+                    Thread thread = new Thread(socketThread);
+                    thread.setDaemon(true);
+                    thread.start();
+                    numberConnections++;
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
