@@ -4,6 +4,7 @@ import network.chat.Client;
 import network.chat.Message;
 
 import java.io.*;
+import java.net.BindException;
 import java.net.Socket;
 import java.net.SocketException;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import java.util.Scanner;
  */
 public class ThreadedHandler implements Runnable {
 
-    private Socket socket;
+    private final Socket socket;
     private Client client;
 
     /**
@@ -35,27 +36,32 @@ public class ThreadedHandler implements Runnable {
                     final ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
                     //Create output stream
                     final ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
-
                     Object message = inputStream.readObject();
                     if (message instanceof Client) {
                         client = (Client) message;
                         CacheSocket.addConnection(client, socket);
                         ArrayList<Client> clients = CacheSocket.getListClient();
                         for (Client cl : clients) {
-                            outputStream.writeObject(cl);
                             System.out.println(cl.toString());
+                            //outputStream.writeObject(cl);
+                            //outputStream.flush();
                         }
-                    } else if (message instanceof Message) {
+                    }
+                    if (message instanceof Message) {
                         System.out.println(message.toString());
                         outputStream.writeObject(message);
                         outputStream.flush();
                     }
-
                 }
+            } catch (BindException ex) {
+                System.out.println("Server is running");
+                ex.printStackTrace();
             } catch (SocketException ex) {
                 System.out.println("Connection reset");
+                ex.printStackTrace();
             } catch (EOFException ex) {
                 System.out.println("Close InputStream");
+                ex.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (ClassNotFoundException e) {

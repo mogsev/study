@@ -3,8 +3,6 @@ package network.chat.server;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by zhenya on 02.02.2015.

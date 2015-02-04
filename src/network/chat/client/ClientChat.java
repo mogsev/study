@@ -18,36 +18,29 @@ public class ClientChat {
 
     private ArrayList<Client> listClients = new ArrayList<Client>();
 
-    private static Client client;
-    private static Socket socket;
-    
     public static void main(String[] args) {
         try {
             //Create Client
-            client = new Client("zhenya 2", "zhenyadfhgsdhsdfgh2  full name", InetAddress.getLocalHost().getHostAddress());
+            Client client = new Client("test", "test4  full name", InetAddress.getLocalHost().getHostAddress());
             //Create Socket
-            socket = new Socket(ConfigClient.serverAddress, ConfigClient.serverPort);
-            socket.setKeepAlive(true);
+            final Socket socket = new Socket(ConfigClient.serverAddress, ConfigClient.serverPort);
+            //socket.setKeepAlive(true);
             //Create SocketMessenger
             SocketMessenger socketMessenger = new SocketMessenger(client, socket);
-            //Send Client info
-            socketMessenger.sendClientInfo();
 
-            new Thread() {
-                @Override
-                public void run() {
-                    while (true) {
-                        SocketMessenger socketMessenger = new SocketMessenger(client, socket);
-                        try {
-                            socketMessenger.receiveMessage();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        } catch (ClassNotFoundException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            }.start();
+            //Create thread for input messages
+            Runnable inputHandler = new InputHandler(client, socket);
+            Thread thread = new Thread(inputHandler);
+            thread.setDaemon(true);
+            thread.start();
+
+            //Send Client info
+            if (socket.isConnected()) {
+                //socketMessenger.sendMessage(client);
+                ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
+                outputStream.writeObject(client);
+                outputStream.flush();
+            }
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             while (true) {
@@ -58,7 +51,6 @@ public class ClientChat {
                 if (socket.isConnected()) {
                     Message message = new Message("zhenya", line);
                     socketMessenger.sendMessage(message);
-                    //socketMessenger.receiveMessage();
                 }
             }
         } catch (SocketException ex) {

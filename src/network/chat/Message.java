@@ -8,7 +8,8 @@ import java.util.Date;
  * Created by zhenya on 03.02.2015.
  */
 public class Message implements Serializable {
-    public static final long serialVersionUID = 951753456L;
+
+    public static final long serialVersionUID = 1L;
 
     private String login;
     private String message;

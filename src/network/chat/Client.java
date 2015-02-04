@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 public class Client implements Serializable {
 
-    public static final long serialVersionUID = 151753456457L;
+    public static final long serialVersionUID = 1L;
 
     private String login;
     private String name;
@@ -37,9 +37,13 @@ public class Client implements Serializable {
         return this.exist;
     }
 
+    public void setExist(boolean exist) {
+        this.exist = exist;
+    }
+
     @Override
     public String toString() {
-        return this.ipHost + "\t" + this.login + "\t" + this.name;
+        return this.ipHost + "\t" + this.login + "\t" + this.name + "\t" + this.exist;
     }
 
     @Override

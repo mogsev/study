@@ -22,10 +22,8 @@ public class CacheSocket {
         cacheMap.remove(client);
     }
 
-    public static ArrayList<Client> getListClient() {
-        ArrayList<Client> result = new ArrayList<Client>();
-        result = Collections.list(cacheMap.keys());
-        return result;
+    public synchronized static ArrayList<Client> getListClient() {
+        return Collections.list(cacheMap.keys());
     }
 
 
