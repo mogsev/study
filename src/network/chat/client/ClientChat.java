@@ -21,19 +21,18 @@ public class ClientChat {
     public static void main(String[] args) {
         try {
             //Create Client
-            Client client = new Client("test", "test4  full name", InetAddress.getLocalHost().getHostAddress());
+            final Client client = new Client("test3", "test4  full name", InetAddress.getLocalHost().getHostAddress());
             //Create Socket
             final Socket socket = new Socket(ConfigClient.serverAddress, ConfigClient.serverPort);
             socket.setKeepAlive(true);
             //Create SocketMessenger
-            SocketMessenger socketMessenger = new SocketMessenger(client, socket);
-
+            SocketMessenger socketMessenger = new SocketMessenger(socket);
 
             //Create thread for input messages
-            //Runnable inputHandler = new InputHandler(client, socket);
-            //Thread thread = new Thread(inputHandler);
-            //thread.setDaemon(true);
-            //thread.start();
+            Runnable inputHandler = new InputHandler(client, socket);
+            Thread thread = new Thread(inputHandler);
+            thread.setDaemon(true);
+            thread.start();
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             while (socket.isConnected()) {
@@ -42,7 +41,7 @@ public class ClientChat {
                     break;
                 }
                 if (socket.isConnected()) {
-                    Message message = new Message("zhenya", line);
+                    Message message = new Message(client, line);
                     socketMessenger.sendMessage(message);
                 }
             }

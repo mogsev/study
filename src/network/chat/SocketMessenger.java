@@ -12,29 +12,20 @@ import java.net.Socket;
 public class SocketMessenger implements AutoCloseable, Closeable {
 
     private final Socket socket;
-    private Client client;
 
-    public SocketMessenger(Client client, Socket socket) {
-        this.client = client;
+    public SocketMessenger(Socket socket) {
         this.socket = socket;
-    }
-
-    public void sendClientInfo() throws IOException {
-        System.out.println("Send client info:\t" + client.toString());
-        ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
-        outputStream.writeObject(client);
-        outputStream.flush();
     }
 
     public void sendMessage(Object message) throws IOException {
         System.out.println("Send message:" + message.toString());
-        ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
+        final ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
         outputStream.writeObject(message);
         outputStream.flush();
     }
 
     public Object receiveMessage() throws IOException, ClassNotFoundException {
-        ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
+        final ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
         Object message = inputStream.readObject();
         return message;
     }

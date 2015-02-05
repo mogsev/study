@@ -25,16 +25,14 @@ public class InputHandler implements Runnable {
     public void run() {
         try {
             SocketMessenger socketMessenger = null;
-            Object message = new Object();
+            Object message = null;
             while (socket.isConnected()) {
                 //Create input stream
-                socketMessenger = new SocketMessenger(client, socket);
+                socketMessenger = new SocketMessenger(socket);
                 try {
                     message = socketMessenger.receiveMessage();
                     if (message instanceof Client) {
-                        System.out.println("Client");
-                        Client client = (Client) message;
-                        System.out.println(client.toString());
+                        System.out.println("Client" + client.toString());
                     }
                     if (message instanceof Message) {
                         Message mes = (Message) message;

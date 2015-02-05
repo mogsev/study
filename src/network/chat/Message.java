@@ -11,22 +11,13 @@ public class Message implements Serializable {
 
     public static final long serialVersionUID = 1L;
 
-    private String login;
+    private final Client client;
     private String message;
     private Date time;
 
-    public Message () {
+    public Message(Client client, String message) {
         this.time = Calendar.getInstance().getTime();
-    }
-
-    public Message(String message) {
-        this();
-        this.message = message;
-    }
-
-    public Message(String login, String message) {
-        this();
-        this.login = login;
+        this.client = client;
         this.message = message;
     }
 
@@ -34,8 +25,8 @@ public class Message implements Serializable {
         return this.message;
     }
 
-    public String getLogin() {
-        return this.login;
+    public Client getClient() {
+        return this.client;
     }
 
     public Date getTime() {
@@ -44,7 +35,7 @@ public class Message implements Serializable {
 
     @Override
     public String toString() {
-        return this.time + ":\t" + this.login + ": " + this.message;
+        return this.time + ":\t" + this.client.getLogin() + ": " + this.message;
     }
 
 }

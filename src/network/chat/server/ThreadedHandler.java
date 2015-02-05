@@ -34,9 +34,9 @@ public class ThreadedHandler implements Runnable {
             try {
                 while (socket.isConnected()) {
                     //Create input stream
-                    ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
+                    final ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
                     //Create output stream
-                    ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
+                    final ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
                     Object message = inputStream.readObject();
                     if (message instanceof Client) {
                         client = (Client) message;
@@ -44,8 +44,8 @@ public class ThreadedHandler implements Runnable {
                         ArrayList<Client> clients = CacheSocket.getListClient();
                         for (Client cl : clients) {
                             System.out.println(cl.toString());
-                            //outputStream.writeObject(cl);
-                            //outputStream.flush();
+                            outputStream.writeObject(cl);
+                            outputStream.flush();
                         }
                     }
                     if (message instanceof Message) {
