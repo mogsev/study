@@ -29,21 +29,17 @@ public class InputHandler implements Runnable {
             while (socket.isConnected()) {
                 //Create input stream
                 socketMessenger = new SocketMessenger(socket);
-                try {
-                    message = socketMessenger.receiveMessage();
-                    if (message instanceof Client) {
-                        System.out.println("Client" + client.toString());
-                    }
-                    if (message instanceof Message) {
-                        Message mes = (Message) message;
-                        System.out.println("Receive message: " + mes);
-                    }
-                } catch (StreamCorruptedException ex) {
-                    ex.printStackTrace();
+                message = socketMessenger.receiveMessage();
+                ClientChat.addInputMessage(message);
+                System.out.println("Receive message: " + message.toString());
+                //send message
+                if (!ClientChat.isEmptyOutputMessage()) {
+                    socketMessenger.sendMessage(ClientChat.getOutputMessage());
                 }
             }
-        }
-        catch (IOException ex) {
+        } catch (StreamCorruptedException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
             ex.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

@@ -10,6 +10,7 @@ import java.net.Socket;
 public class ServerChat extends Thread {
 
     private Socket socket;
+    public static CacheMessage cacheMessage = new CacheMessage();
 
     public ServerChat() {
     }

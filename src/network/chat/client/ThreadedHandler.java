@@ -1,15 +1,12 @@
-package network.chat.server;
+package network.chat.client;
 
-import network.chat.Client;
-import network.chat.Message;
-
-import java.io.*;
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.BindException;
 import java.net.Socket;
 import java.net.SocketException;
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Scanner;
 
 /**
  * Created by zhenya on 03.02.2015.
@@ -28,19 +25,24 @@ public class ThreadedHandler implements Runnable {
 
     @Override
     public void run() {
+        int i = 0;
         try {
             try {
                 while (socket.isConnected()) {
+                    i++;
+                    System.out.println(i);
                     //Create input stream
-                    final ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
+                    //final ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
                     //Create output stream
                     final ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
                     //read message
-                    Object message = inputStream.readObject();
-                    System.out.println(message.toString());
-                    outputStream.writeObject(message);
-                    outputStream.flush();
-
+                    //Object message = inputStream.readObject();
+                    //System.out.println(message.toString());
+                    if (!ClientChat.isEmptyOutputMessage()) {
+                        outputStream.writeObject(ClientChat.getOutputMessage());
+                        outputStream.flush();
+                    }
+                    Thread.sleep(2000);
                 }
             } catch (BindException ex) {
                 System.out.println("Server is running");
@@ -53,7 +55,7 @@ public class ThreadedHandler implements Runnable {
                 ex.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
-            } catch (ClassNotFoundException e) {
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             } finally {
                 //Close socket
