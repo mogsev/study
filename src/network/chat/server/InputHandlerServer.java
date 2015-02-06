@@ -1,10 +1,12 @@
 package network.chat.server;
 
+import network.chat.Client;
 import network.chat.Message;
 
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.BindException;
 import java.net.Socket;
 import java.net.SocketException;
@@ -15,6 +17,7 @@ import java.net.SocketException;
 public class InputHandlerServer implements Runnable {
 
     private final Socket socket;
+    private Client client;
 
     /**
      * Design handler
@@ -31,17 +34,15 @@ public class InputHandlerServer implements Runnable {
                 //Create input stream
                 final ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
                 Message info = (Message) inputStream.readObject();
-                ServerChat.cacheMap.put(info.getClient(), socket);
+                client = info.getClient();
+                final ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
+                ServerChat.cache.put(client, outputStream);
+                ServerChat.cacheMap.put(client, socket);
                 while (socket.isConnected()) {
                     //read message
                     Object message = inputStream.readObject();
                     System.out.println(message.toString());
                     ServerChat.outputMessages.add(message);
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
                 }
             } catch (BindException ex) {
                 System.out.println("Server is running");
@@ -57,6 +58,8 @@ public class InputHandlerServer implements Runnable {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } finally {
+                //remove client
+                ServerChat.cacheMap.remove(client);
                 //Close socket
                 socket.close();
             }

@@ -13,33 +13,35 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
+ * Design output handler
  * Created by zhenya on 03.02.2015.
  */
 public class OutputHandler implements Runnable {
-
-
-    /**
-     * Design output handler
-     */
 
     @Override
     public void run() {
         Message message = null;
         while (true) {
-            if (!ServerChat.outputMessages.isEmpty() && !ServerChat.cacheMap.isEmpty()) {
+            if (!ServerChat.outputMessages.isEmpty() && !ServerChat.cache.isEmpty()) {
                 Iterator<Message> messageIterator = ServerChat.outputMessages.iterator();
                 while (messageIterator.hasNext()) {
                     message = messageIterator.next();
                     if (message.getClient().getLogin().equals("server")) {
-                        for (Map.Entry<Client, Socket> entry : ServerChat.cacheMap.entrySet()) {
-                            new Thread(new SenderMessage(entry.getValue(), message)).start();
+                        for (Map.Entry<Client, ObjectOutputStream> entry : ServerChat.cache.entrySet()) {
+                            //new Thread(new SenderMessage(entry.getValue(), message)).start();
+                            try {
+                                entry.getValue().writeObject(message);
+                                entry.getValue().flush();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
                         messageIterator.remove();
                     }
                 }
             }
             try {
-                Thread.sleep(2000);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

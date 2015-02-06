@@ -9,7 +9,7 @@ import java.net.UnknownHostException;
  */
 public class Client implements Serializable {
 
-    public static final long serialVersionUID = 1L;
+    public static final long serialVersionUID = 29832L;
 
     private String login;
     private String name;

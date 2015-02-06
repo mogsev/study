@@ -9,7 +9,7 @@ import java.util.Date;
  */
 public class Message implements Serializable {
 
-    public static final long serialVersionUID = 1L;
+    public static final long serialVersionUID = 14589L;
 
     private final Client client;
     private String message;

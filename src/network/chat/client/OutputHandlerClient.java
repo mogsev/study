@@ -20,27 +20,18 @@ public class OutputHandlerClient implements Runnable {
         try {
             final ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
             while (socket.isConnected()) {
-                try {
-                    if (!ClientChat.isEmptyOutputMessage()) {
-                        objectOutputStream.writeObject(ClientChat.getOutputMessage());
-                        objectOutputStream.flush();
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                if (!ClientChat.isEmptyOutputMessage()) {
+                    objectOutputStream.writeObject(ClientChat.getOutputMessage());
+                    objectOutputStream.flush();
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
         } finally {
             try {
                 socket.close();
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (IOException ex) {
+                ex.printStackTrace();
             }
         }
     }

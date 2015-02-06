@@ -19,22 +19,23 @@ public class InputHandlerClient implements Runnable {
     @Override
     public void run() {
         try {
-
             Object message = null;
+            //Create input stream
+            final ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
             while (socket.isConnected()) {
-                //Create input stream
-                final ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
-                message = objectInputStream.readObject();
-                ClientChat.addInputMessage(message);
-                System.out.println("Receive message: " + message.toString());
+                if (objectInputStream != null) {
+                    message = objectInputStream.readObject();
+                    ClientChat.addInputMessage(message);
+                    System.out.println("Receive message: " + message.toString());
+                }
             }
         } catch (StreamCorruptedException ex) {
             ex.printStackTrace();
         } catch (IOException ex) {
             ex.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } finally {
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }finally {
             try {
                 socket.close();
             } catch (IOException e) {

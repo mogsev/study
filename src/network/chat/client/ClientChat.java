@@ -4,7 +4,6 @@ import network.chat.Client;
 import network.chat.Message;
 
 import java.io.*;
-import java.net.InetAddress;
 import java.net.Socket;
 import java.net.SocketException;
 import java.net.UnknownHostException;
@@ -15,41 +14,25 @@ import java.util.ArrayList;
  */
 public class ClientChat {
 
+    private String login;
+    private Client client;
+    private Socket socket;
+
     private static ArrayList<Client> listClients = new ArrayList<Client>();
     private static ArrayList<Message> inputMessages = new ArrayList<Message>();
     private static ArrayList<Message> outputMessages = new ArrayList<Message>();
 
-    public ClientChat() {
+    public ClientChat(String login) {
+        this.login = login;
         initComponents();
     }
 
     private void initComponents() {
-
-    }
-
-    public static void addInputMessage(Object message) {
-        inputMessages.add((Message) message);
-    }
-
-    public static void addOutputMessage(Message message) {
-        outputMessages.add(message);
-    }
-
-    public static Message getOutputMessage() {
-        return outputMessages.remove(0);
-    }
-
-    public static boolean isEmptyOutputMessage() {
-        return outputMessages.isEmpty();
-    }
-
-    public static void main(String[] args) {
         try {
             //Create Client
-            final Client client = new Client("zhenya3");
-
+            client = new Client(login);
             //Create Socket
-            final Socket socket = new Socket(ConfigClient.serverAddress, ConfigClient.serverPort);
+            socket = new Socket(ConfigClient.serverAddress, ConfigClient.serverPort);
             socket.setKeepAlive(true);
 
             //Create thread for output messages
@@ -64,7 +47,6 @@ public class ClientChat {
             Thread threadInput = new Thread(inputHandlerClient);
             threadInput.setDaemon(true);
             threadInput.start();
-
 
             //Input user messages
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -83,6 +65,39 @@ public class ClientChat {
             ex.printStackTrace();
         } catch (IOException ex) {
             ex.printStackTrace();
+        } finally {
+            try {
+                socket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public synchronized static void addInputMessage(Object message) {
+        inputMessages.add((Message) message);
+    }
+
+    public synchronized static void addOutputMessage(Message message) {
+        outputMessages.add(message);
+    }
+
+    public synchronized static Message getOutputMessage() {
+        return outputMessages.remove(0);
+    }
+
+    public synchronized static boolean isEmptyOutputMessage() {
+        return outputMessages.isEmpty();
+    }
+
+    public static void main(String[] args) {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            System.out.println("Please input login:");
+            String login = reader.readLine();
+            new ClientChat(login);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

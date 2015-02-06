@@ -11,21 +11,23 @@ import java.net.Socket;
  */
 public class SenderMessage implements Runnable {
 
-    private final Socket socket;
+    //private final Socket socket;
+    private final ObjectOutputStream objectOutputStream;
     private Message message;
 
-    public SenderMessage(Socket socket, Message message) {
-        this.socket = socket;
+    public SenderMessage(ObjectOutputStream objectOutputStream, Message message) {
+        //this.socket = socket;
+        this.objectOutputStream = objectOutputStream;
         this.message = message;
     }
 
     @Override
     public void run() {
-        final ObjectOutputStream outputStream;
         try {
-            outputStream = new ObjectOutputStream(socket.getOutputStream());
-            outputStream.writeObject(message);
-            outputStream.flush();
+            //ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+            objectOutputStream.writeObject(message);
+            objectOutputStream.flush();
+            //objectOutputStream.reset();
         } catch (IOException e) {
             e.printStackTrace();
         }

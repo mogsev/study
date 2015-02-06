@@ -21,6 +21,7 @@ public class ServerChat extends Thread {
     private Socket socket;
     public static List outputMessages = Collections.synchronizedList(new ArrayList<Message>());
     public static volatile ConcurrentHashMap<Client, Socket> cacheMap = new ConcurrentHashMap<Client, Socket>();
+    public static volatile ConcurrentHashMap<Client, ObjectOutputStream> cache = new ConcurrentHashMap<Client, ObjectOutputStream>();
 
     public ServerChat() {
     }
@@ -31,22 +32,24 @@ public class ServerChat extends Thread {
         try {
             ServerSocket serverSocket = new ServerSocket(ConfigServer.serverPort);
             int numberConnections = 1; //number connection
+
+            //Create thread output handler
+            Runnable outputHandler = new OutputHandler();
+            Thread output = new Thread(outputHandler);
+            output.setDaemon(true);
+            output.start();
+
             //Begin listening connections
             while (true) {
                 socket = serverSocket.accept();
                 if (socket.isConnected()) {
                     System.out.println("Number connections: " + numberConnections);
                     socket.setKeepAlive(true);
+                    //Create input handler client
                     Runnable inputHandlerServer = new InputHandlerServer(socket);
                     Thread input = new Thread(inputHandlerServer);
                     input.setDaemon(true);
                     input.start();
-
-                    Runnable outputHandler = new OutputHandler();
-                    Thread output = new Thread(outputHandler);
-                    output.setDaemon(true);
-                    output.start();
-
                     numberConnections++;
                 }
             }
