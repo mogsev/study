@@ -23,7 +23,6 @@ public class OutputHandlerSever implements Runnable {
 
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
                 while(true) {
-
                     i = i + 1;
                     objectOutputStream.writeObject("server"+i);
                     objectOutputStream.flush();

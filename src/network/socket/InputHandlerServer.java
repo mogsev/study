@@ -1,5 +1,7 @@
 package network.socket;
 
+import network.chat.Message;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.Socket;
@@ -20,9 +22,8 @@ public class InputHandlerServer implements Runnable {
 
             ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
             while(true) {
-
-                String str = (String) objectInputStream.readObject();
-                System.out.println(str);
+                Message message = (Message) objectInputStream.readObject();
+                System.out.println(message);
             }
 
         } catch (IOException e) {

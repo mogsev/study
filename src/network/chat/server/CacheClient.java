@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Created by zhenya on 04.02.2015.
  */
-public class CacheSocket {
+public class CacheClient {
 
     private static volatile ConcurrentHashMap<Client, Socket> cacheMap = new ConcurrentHashMap<Client, Socket>();
 

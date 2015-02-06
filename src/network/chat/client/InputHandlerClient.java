@@ -1,41 +1,32 @@
 package network.chat.client;
 
-import network.chat.Client;
-import network.chat.Message;
-import network.chat.SocketMessenger;
-
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.StreamCorruptedException;
 import java.net.Socket;
 
 /**
  * Created by zhenya on 04.02.2015.
  */
-public class InputHandler implements Runnable {
+public class InputHandlerClient implements Runnable {
 
     private final Socket socket;
-    private Client client;
 
-    public InputHandler(Client client, Socket socket) {
+    public InputHandlerClient(Socket socket) {
         this.socket = socket;
-        this.client = client;
     }
 
     @Override
     public void run() {
         try {
-            SocketMessenger socketMessenger = null;
+
             Object message = null;
             while (socket.isConnected()) {
                 //Create input stream
-                socketMessenger = new SocketMessenger(socket);
-                message = socketMessenger.receiveMessage();
+                final ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
+                message = objectInputStream.readObject();
                 ClientChat.addInputMessage(message);
                 System.out.println("Receive message: " + message.toString());
-                //send message
-                if (!ClientChat.isEmptyOutputMessage()) {
-                    socketMessenger.sendMessage(ClientChat.getOutputMessage());
-                }
             }
         } catch (StreamCorruptedException ex) {
             ex.printStackTrace();

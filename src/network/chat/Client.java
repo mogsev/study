@@ -1,6 +1,8 @@
 package network.chat;
 
 import java.io.Serializable;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 /**
  * Created by zhenya on 04.02.2015.
@@ -12,13 +14,18 @@ public class Client implements Serializable {
     private String login;
     private String name;
     private String ipHost;
-    private boolean exist;
+    private boolean exist = true;
 
-    public Client(String login, String name, String ipHost) {
+    public Client(String login) {
+        this.login = login;
+        this.name = login;
+        setIpHost();
+    }
+
+    public Client(String login, String name) {
         this.login = login;
         this.name = name;
-        this.ipHost = ipHost;
-        this.exist = true;
+        setIpHost();
     }
 
     public String getLogin() {
@@ -27,6 +34,14 @@ public class Client implements Serializable {
 
     public String getName() {
         return this.name;
+    }
+
+    private void setIpHost() {
+        try {
+            this.ipHost = InetAddress.getLocalHost().getHostAddress();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
     }
 
     public String getIpHost() {

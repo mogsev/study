@@ -1,4 +1,4 @@
-package network.chat;
+package network.socket;
 
 import java.io.Closeable;
 import java.io.IOException;

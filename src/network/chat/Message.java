@@ -15,10 +15,15 @@ public class Message implements Serializable {
     private String message;
     private Date time;
 
+    public Message(Client client) {
+        this.client = client;
+        setDate();
+    }
+
     public Message(Client client, String message) {
-        this.time = Calendar.getInstance().getTime();
         this.client = client;
         this.message = message;
+        setDate();
     }
 
     public String getMessage() {
@@ -27,6 +32,10 @@ public class Message implements Serializable {
 
     public Client getClient() {
         return this.client;
+    }
+
+    private void setDate() {
+        this.time = Calendar.getInstance().getTime();
     }
 
     public Date getTime() {
