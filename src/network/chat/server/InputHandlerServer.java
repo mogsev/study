@@ -36,13 +36,19 @@ public class InputHandlerServer implements Runnable {
                 Message info = (Message) inputStream.readObject();
                 client = info.getClient();
                 final ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
-                ServerChat.cache.put(client, outputStream);
-                ServerChat.cacheMap.put(client, socket);
+                ServerChat.cacheClient.put(client, outputStream);
                 while (socket.isConnected()) {
                     //read message
-                    Object message = inputStream.readObject();
-                    System.out.println(message.toString());
-                    ServerChat.outputMessages.add(message);
+                    if (outputStream != null) {
+                        Object message = inputStream.readObject();
+                        System.out.println(message.toString());
+                        ServerChat.inputMessages.add(message);
+                    }
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             } catch (BindException ex) {
                 System.out.println("Server is running");
@@ -59,7 +65,7 @@ public class InputHandlerServer implements Runnable {
                 e.printStackTrace();
             } finally {
                 //remove client
-                ServerChat.cacheMap.remove(client);
+                ServerChat.cacheClient.remove(client);
                 //Close socket
                 socket.close();
             }

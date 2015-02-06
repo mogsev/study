@@ -1,5 +1,8 @@
 package network.chat.client;
 
+import network.chat.Message;
+import network.chat.MessageMulticast;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.StreamCorruptedException;
@@ -25,8 +28,19 @@ public class InputHandlerClient implements Runnable {
             while (socket.isConnected()) {
                 if (objectInputStream != null) {
                     message = objectInputStream.readObject();
-                    ClientChat.addInputMessage(message);
-                    System.out.println("Receive message: " + message.toString());
+                    if (message instanceof MessageMulticast) {
+                        MessageMulticast mm = (MessageMulticast) message;
+                        ClientChat.listClients.clear();
+                        ClientChat.listClients.addAll(mm.getListClients());
+                    } else if (message instanceof Message) {
+                        ClientChat.addInputMessage(message);
+                        System.out.println("Receive message: " + message.toString());
+                    }
+                }
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         } catch (StreamCorruptedException ex) {

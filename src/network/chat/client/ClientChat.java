@@ -8,6 +8,8 @@ import java.net.Socket;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by zhenya on 02.02.2015.
@@ -18,7 +20,7 @@ public class ClientChat {
     private Client client;
     private Socket socket;
 
-    private static ArrayList<Client> listClients = new ArrayList<Client>();
+    public static List listClients = Collections.synchronizedList(new ArrayList<Client>());
     private static ArrayList<Message> inputMessages = new ArrayList<Message>();
     private static ArrayList<Message> outputMessages = new ArrayList<Message>();
 
@@ -55,9 +57,18 @@ public class ClientChat {
                 String line = reader.readLine();
                 if (line.equals("quit")) {
                     break;
+                } else if (line.equals("list")) {
+                    System.out.println("List clients:");
+                    if (!listClients.isEmpty()) {
+                        for (int i = 0; i < listClients.size(); i++) {
+                            Client cl = (Client) listClients.get(i);
+                            System.out.println(cl.toString());
+                        }
+                    }
+                } else {
+                    message = new Message(client, line);
+                    addOutputMessage(message);
                 }
-                message = new Message(client, line);
-                addOutputMessage(message);
             }
         } catch (SocketException ex) {
             System.out.println("Connection reset by peer: socket write error");

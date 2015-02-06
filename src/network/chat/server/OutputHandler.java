@@ -20,27 +20,42 @@ public class OutputHandler implements Runnable {
 
     @Override
     public void run() {
-        Message message = null;
+        Object message = null;
         while (true) {
-            if (!ServerChat.outputMessages.isEmpty() && !ServerChat.cache.isEmpty()) {
-                Iterator<Message> messageIterator = ServerChat.outputMessages.iterator();
+            //Send all messages from server
+            if (!ServerChat.outputMessages.isEmpty() && !ServerChat.cacheClient.isEmpty()) {
+                Iterator<Object> messageIterator = ServerChat.outputMessages.iterator();
                 while (messageIterator.hasNext()) {
                     message = messageIterator.next();
-                    if (message.getClient().getLogin().equals("server")) {
-                        for (Map.Entry<Client, ObjectOutputStream> entry : ServerChat.cache.entrySet()) {
-                            try {
-                                entry.getValue().writeObject(message);
-                                entry.getValue().flush();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+                    for (ObjectOutputStream outputStream : ServerChat.cacheClient.values()) {
+                        try {
+                            outputStream.writeObject(message);
+                            outputStream.flush();
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
-                        messageIterator.remove();
                     }
+                    messageIterator.remove();
+                }
+            }
+            //Send all messages from client
+            if (!ServerChat.inputMessages.isEmpty() && !ServerChat.cacheClient.isEmpty()) {
+                Iterator<Object> messageIterator = ServerChat.inputMessages.iterator();
+                while (messageIterator.hasNext()) {
+                    message = messageIterator.next();
+                    for (ObjectOutputStream outputStream : ServerChat.cacheClient.values()) {
+                        try {
+                            outputStream.writeObject(message);
+                            outputStream.flush();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    messageIterator.remove();
                 }
             }
             try {
-                Thread.sleep(5000);
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

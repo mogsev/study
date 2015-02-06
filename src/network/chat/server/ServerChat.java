@@ -19,11 +19,20 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ServerChat extends Thread {
 
     private Socket socket;
-    public static List outputMessages = Collections.synchronizedList(new ArrayList<Message>());
-    public static volatile ConcurrentHashMap<Client, Socket> cacheMap = new ConcurrentHashMap<Client, Socket>();
-    public static volatile ConcurrentHashMap<Client, ObjectOutputStream> cache = new ConcurrentHashMap<Client, ObjectOutputStream>();
+
+    public static List outputMessages = Collections.synchronizedList(new ArrayList<Object>());
+    public static List inputMessages = Collections.synchronizedList(new ArrayList<Object>());
+    public static volatile ConcurrentHashMap<Client, ObjectOutputStream> cacheClient = new ConcurrentHashMap<Client, ObjectOutputStream>();
 
     public ServerChat() {
+        initComponents();
+    }
+
+    private void initComponents() {
+        //Create thread for clients list
+        Thread listClients = new Thread(new ListClients());
+        listClients.setDaemon(true);
+        listClients.start();
     }
 
     @Override
@@ -87,8 +96,8 @@ public class ServerChat extends Thread {
                             outputMessages.add(new Message(new Client("server"), "server test message"));
                             break;
                         case 3:
-                            if (!cacheMap.isEmpty()) {
-                                for (Map.Entry<Client, Socket> entry : cacheMap.entrySet()) {
+                            if (!cacheClient.isEmpty()) {
+                                for (Map.Entry<Client, ObjectOutputStream> entry : cacheClient.entrySet()) {
                                     System.out.println(entry.getKey().toString());
                                 }
                             }

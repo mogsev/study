@@ -14,7 +14,6 @@ public class Client implements Serializable {
     private String login;
     private String name;
     private String ipHost;
-    private boolean exist = true;
 
     public Client(String login) {
         this.login = login;
@@ -48,17 +47,9 @@ public class Client implements Serializable {
         return this.ipHost;
     }
 
-    public boolean isExist() {
-        return this.exist;
-    }
-
-    public void setExist(boolean exist) {
-        this.exist = exist;
-    }
-
     @Override
     public String toString() {
-        return this.ipHost + "\t" + this.login + "\t" + this.name + "\t" + this.exist;
+        return this.ipHost + "\t" + this.login + "\t" + this.name;
     }
 
     @Override

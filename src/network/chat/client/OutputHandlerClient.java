@@ -24,6 +24,11 @@ public class OutputHandlerClient implements Runnable {
                     objectOutputStream.writeObject(ClientChat.getOutputMessage());
                     objectOutputStream.flush();
                 }
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         } catch (IOException ex) {
             ex.printStackTrace();
