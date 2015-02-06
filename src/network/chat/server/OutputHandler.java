@@ -1,16 +1,8 @@
 package network.chat.server;
 
-import network.chat.Client;
-import network.chat.Message;
-
-import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.net.BindException;
-import java.net.Socket;
-import java.net.SocketException;
 import java.util.Iterator;
-import java.util.Map;
 
 /**
  * Design output handler

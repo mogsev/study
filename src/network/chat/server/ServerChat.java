@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
+ * Server chat
  * Created by zhenya on 02.02.2015.
  */
 public class ServerChat extends Thread {

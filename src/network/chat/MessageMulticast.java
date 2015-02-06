@@ -9,19 +9,34 @@ import java.util.List;
  */
 public class MessageMulticast extends Message implements Serializable {
 
-    public static final long serialVersionUID = 951753124578L;
+    public static final long serialVersionUID = 324578L;
     private ArrayList<Client> listClients;
 
+    /**
+     *
+     * @param client
+     * @param listClients
+     */
     public MessageMulticast(Client client, ArrayList<Client> listClients) {
         super(client);
         this.listClients = listClients;
     }
 
+    /**
+     *
+     * @param client
+     * @param message
+     * @param listClients
+     */
     public MessageMulticast(Client client, String message, ArrayList<Client> listClients) {
         super(client, message);
         this.listClients = listClients;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Client> getListClients() {
         return this.listClients;
     }

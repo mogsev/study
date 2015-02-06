@@ -1,13 +1,10 @@
 package network.chat.server;
 
 import network.chat.Client;
-import network.chat.Message;
 import network.chat.MessageMulticast;
 
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 
 /**

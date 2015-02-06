@@ -15,22 +15,39 @@ public class Client implements Serializable {
     private String name;
     private String ipHost;
 
+    /**
+     *
+     * @param login
+     */
     public Client(String login) {
         this.login = login;
         this.name = login;
         setIpHost();
     }
 
+    /**
+     *
+     * @param login
+     * @param name
+     */
     public Client(String login, String name) {
         this.login = login;
         this.name = name;
         setIpHost();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getLogin() {
         return this.login;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return this.name;
     }
@@ -43,6 +60,10 @@ public class Client implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public String getIpHost() {
         return this.ipHost;
     }

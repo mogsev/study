@@ -15,29 +15,53 @@ public class Message implements Serializable {
     private String message;
     private Date time;
 
+    /**
+     *
+     * @param client
+     */
     public Message(Client client) {
         this.client = client;
         setDate();
     }
 
+    /**
+     *
+     * @param client
+     * @param message
+     */
     public Message(Client client, String message) {
         this.client = client;
         this.message = message;
         setDate();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getMessage() {
         return this.message;
     }
 
+    /**
+     *
+     * @return
+     */
     public Client getClient() {
         return this.client;
     }
 
+    /**
+     *
+     */
     private void setDate() {
         this.time = Calendar.getInstance().getTime();
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getTime() {
         return this.time;
     }

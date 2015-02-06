@@ -12,6 +12,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
+ * Client chat
  * Created by zhenya on 02.02.2015.
  */
 public class ClientChat {
