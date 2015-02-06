@@ -28,7 +28,6 @@ public class OutputHandler implements Runnable {
                     message = messageIterator.next();
                     if (message.getClient().getLogin().equals("server")) {
                         for (Map.Entry<Client, ObjectOutputStream> entry : ServerChat.cache.entrySet()) {
-                            //new Thread(new SenderMessage(entry.getValue(), message)).start();
                             try {
                                 entry.getValue().writeObject(message);
                                 entry.getValue().flush();
