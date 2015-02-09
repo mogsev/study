@@ -1,1 +1,5 @@
 Remote Synchronization
+Objective:
+Develop an application for synchronizing files.
+The application must receive the configuration file.
+Scan the specified directory and send new files to other servers in the list.
