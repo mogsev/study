@@ -1,7 +1,5 @@
 package network.rsync;
 
-import network.socket.InputHandlerServer;
-
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -13,6 +11,10 @@ public class InputHandler implements Runnable {
 
     final ServerSocket serverSocket;
 
+    /**
+     *
+     * @param serverSocket
+     */
     public InputHandler(ServerSocket serverSocket) {
         this.serverSocket = serverSocket;
     }

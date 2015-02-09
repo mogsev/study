@@ -12,6 +12,10 @@ public class InputFile implements Runnable {
 
     private final Socket socket;
 
+    /**
+     *
+     * @param socket
+     */
     public InputFile(Socket socket) {
         this.socket = socket;
     }
