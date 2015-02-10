@@ -2,12 +2,11 @@ package network.rsync;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -15,7 +14,7 @@ import java.util.Scanner;
  */
 public class RemoteSync {
 
-    private ArrayList<Path> listFiles;
+    public static ArrayList<String> listFiles = new ArrayList<String>();
     public static boolean stopped = false;
 
     public RemoteSync() {
@@ -27,6 +26,15 @@ public class RemoteSync {
      */
     private void initComponent() {
         initListFiles(RemoteSyncConfig.dir);
+        //Create viewer
+        Viewer viewer = new Viewer();
+        Thread threadViewer = new Thread(viewer);
+        threadViewer.setDaemon(true);
+        threadViewer.start();
+    }
+
+    public synchronized static void addFiles(File file) {
+        listFiles.add(file.toPath().getFileName().toString());
     }
 
     /**
@@ -44,7 +52,10 @@ public class RemoteSync {
         Path path = new File(dir).toPath();
         try (DirectoryStream<Path> entries = Files.newDirectoryStream(path)) {
             for (Path entry : entries) {
-                listFiles.add(entry);
+                System.out.println(entry.getFileName().toString());
+                if (entry.toFile().isFile()) {
+                    listFiles.add(entry.getFileName().toString());
+                }
             }
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -76,16 +87,24 @@ public class RemoteSync {
         File file = new File(RemoteSyncConfig.dir);
         RemoteSync remoteSync = new RemoteSync();
 
+
+
         //Create thread for input handler
         InputHandler inputHandler = new InputHandler();
         Thread thread = new Thread(inputHandler);
         thread.setDaemon(true);
 
+        int enterLine = 1;
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNextLine()) {
             System.out.println("0 - exit;\t1 - show dir;\t2 - start;\t3 - stop;");
-            int intLine = scanner.nextInt();
-            switch (intLine) {
+            try  {
+                enterLine = scanner.nextInt();
+            } catch (InputMismatchException ex) {
+
+            }
+
+            switch (enterLine) {
                 case 0:
                     System.exit(1);
                     break;

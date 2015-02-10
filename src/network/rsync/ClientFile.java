@@ -11,11 +11,18 @@ public class ClientFile implements Serializable {
 
     private String nameFile;
 
-
+    /**
+     *
+     * @param nameFile
+     */
     public ClientFile(String nameFile) {
         this.nameFile = nameFile;
     }
 
+    /**
+     * Return name file
+     * @return
+     */
     public String getNameFile() {
         return this.nameFile;
     }

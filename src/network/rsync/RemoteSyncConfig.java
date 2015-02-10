@@ -26,7 +26,7 @@ public class RemoteSyncConfig {
             serverIP = properties.getProperty("SERVER");
             serverPort = Integer.parseInt(properties.getProperty("PORT"));
             time = Integer.parseInt(properties.getProperty("TIME"));
-            dir = properties.getProperty("TIME");
+            dir = properties.getProperty("DIR");
 
         } catch (FileNotFoundException ex) {
             System.err.println("Config file not found");
