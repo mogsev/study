@@ -6,7 +6,6 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -84,27 +83,21 @@ public class RemoteSync {
      */
     public static void main(String[] args) {
         System.out.println("0 - exit;\t1 - show dir;\t2 - start;\t3 - stop;");
-        File file = new File(RemoteSyncConfig.dir);
+        //File file = new File(RemoteSyncConfig.dir);
         RemoteSync remoteSync = new RemoteSync();
-
-
 
         //Create thread for input handler
         InputHandler inputHandler = new InputHandler();
         Thread thread = new Thread(inputHandler);
         thread.setDaemon(true);
 
-        int enterLine = 1;
+        String enterLine = null;
+        Integer numberLine = null;
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNextLine()) {
             System.out.println("0 - exit;\t1 - show dir;\t2 - start;\t3 - stop;");
-            try  {
-                enterLine = scanner.nextInt();
-            } catch (InputMismatchException ex) {
-
-            }
-
-            switch (enterLine) {
+            numberLine = Integer.parseInt(scanner.nextLine());
+            switch (numberLine) {
                 case 0:
                     System.exit(1);
                     break;
@@ -127,6 +120,7 @@ public class RemoteSync {
                     break;
                 default:
                     System.out.println("Unknown command, enter number...");
+                    break;
             }
         }
     }
