@@ -1,5 +1,9 @@
 package test.level14.lesson04.task02;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
 /* Коты
 1. Считывать строки(параметры) с консоли, пока пользователь не введет пустую строку(Enter).
 2. Каждый параметр соответствует имени кота.
@@ -13,6 +17,24 @@ public class Solution
     public static void main(String[] args) throws Exception
     {
         //Add your code here
+        boolean isRead = true;
+        ArrayList<String> list = new ArrayList<String>();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String str = "";
+        while (isRead) {
+            str = reader.readLine();
+            if (!str.equals("")) {
+                list.add(str);
+            } else {
+                isRead = false;
+            }
+        }
+
+        for (String s : list) {
+
+            Cat cat = CatFactory.getCatByKey(s);
+            System.out.println(cat);
+        }
     }
 
     static class CatFactory
