@@ -1,4 +1,4 @@
-package com.javarush.test.level05.lesson05.task04;
+package test.level05.lesson05.task04;
 
 /* Создать три объекта типа Cat
 В методе main создать три объекта типа Cat и заполнить их данными.

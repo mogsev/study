@@ -1,4 +1,4 @@
-package com.javarush.test.level05.lesson09.task03;
+package test.level05.lesson09.task03;
 
 /* Создать класс Dog
 Создать класс Dog (собака) с тремя конструкторами:

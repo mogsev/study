@@ -1,4 +1,4 @@
-package com.javarush.test.level05.lesson12.home01;
+package test.level05.lesson12.home01;
 
 /* Три класса
 По аналогии с классом Duck(утка) создай классы Cat(кошка) и Dog(собака).

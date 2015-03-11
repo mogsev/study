@@ -1,4 +1,4 @@
-package com.javarush.test.level06.lesson05.task03;
+package test.level06.lesson05.task03;
 
 /* По 50 000 объектов Cat и Dog
 Создать в цикле по 50 000 объектов Cat и Dog. (Java-машина должна начать уничтожать неиспользуемые, и метод finalize хоть раз да вызовется).

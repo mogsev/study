@@ -1,7 +1,4 @@
-package com.javarush.test.level04.lesson13.task04;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+package test.level04.lesson13.task04;
 
 /* Рисуем линии
 Используя цикл for вывести на экран:

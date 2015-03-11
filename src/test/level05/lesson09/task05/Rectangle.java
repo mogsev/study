@@ -1,4 +1,4 @@
-package com.javarush.test.level05.lesson09.task05;
+package test.level05.lesson09.task05;
 
 /* Создать класс прямоугольник (Rectangle)
 Создать класс прямоугольник (Rectangle). Его данными будут top, left, width, height (левая координата, верхняя, ширина и высота). Создать для него как можно больше конструкторов:

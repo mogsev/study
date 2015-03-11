@@ -1,7 +1,4 @@
-package com.javarush.test.level04.lesson13.task03;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+package test.level04.lesson13.task03;
 
 /* Рисуем треугольник
 Используя цикл for вывести на экран прямоугольный треугольник из восьмёрок со сторонами 10 и 10.

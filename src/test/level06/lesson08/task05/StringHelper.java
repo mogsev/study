@@ -1,4 +1,4 @@
-package com.javarush.test.level06.lesson08.task05;
+package test.level06.lesson08.task05;
 
 /* Класс StringHelper
 Cделать класс StringHelper, у которого будут 2 статических метода:

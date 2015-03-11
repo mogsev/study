@@ -1,4 +1,4 @@
-package com.javarush.test.level05.lesson09.task02;
+package test.level05.lesson09.task02;
 
 /* Создать класс Cat
 Создать класс Cat (кот) с пятью конструкторами:

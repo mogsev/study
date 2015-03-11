@@ -1,4 +1,4 @@
-package com.javarush.test.level04.lesson10.task05;
+package test.level04.lesson10.task05;
 
 /* Таблица умножения
 Вывести на экран таблицу умножения 10х10 используя цикл while.

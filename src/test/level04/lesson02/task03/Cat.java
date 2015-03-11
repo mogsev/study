@@ -1,4 +1,4 @@
-package com.javarush.test.level04.lesson02.task03;
+package test.level04.lesson02.task03;
 
 /* Реализовать метод setCatsCount
 Реализовать метод setCatsCount так, чтобы с его помощью можно было устанавливать значение переменной catsCount равное переданному параметру.

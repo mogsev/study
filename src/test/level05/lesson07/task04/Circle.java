@@ -1,4 +1,4 @@
-package com.javarush.test.level05.lesson07.task04;
+package test.level05.lesson07.task04;
 
 /* Создать класс Circle
 Создать класс (Circle) круг, с тремя инициализаторами:

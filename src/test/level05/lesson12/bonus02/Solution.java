@@ -1,4 +1,4 @@
-package com.javarush.test.level05.lesson12.bonus02;
+package test.level05.lesson12.bonus02;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

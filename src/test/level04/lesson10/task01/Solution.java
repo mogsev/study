@@ -1,7 +1,4 @@
-package com.javarush.test.level04.lesson10.task01;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+package test.level04.lesson10.task01;
 
 /* 10 чисел
 Вывести на экран числа от 1 до 10 используя цикл while.

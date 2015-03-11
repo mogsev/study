@@ -1,4 +1,4 @@
-package com.javarush.test.level04.lesson16.home04;
+package test.level04.lesson16.home04;
 
 /* Меня зовут 'Вася'...
 Ввести с клавиатуры строку name.
