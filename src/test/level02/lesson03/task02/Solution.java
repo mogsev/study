@@ -1,4 +1,4 @@
-package com.javarush.test.level02.lesson03.task02;
+package test.level02.lesson03.task02;
 
 /* Кто любимый мамочкин робот?
 Напиши программу, которая выводит на экран надпись: «Кто любимый мамочкин робот?» 7 раз.

@@ -1,4 +1,4 @@
-package com.javarush.test.level03.lesson06.task02;
+package test.level03.lesson06.task02;
 
 /* Таблица умножения
 Выведи на экран таблицу умножения 10 на 10 в следующем виде:

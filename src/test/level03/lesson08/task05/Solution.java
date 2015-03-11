@@ -1,4 +1,4 @@
-package com.javarush.test.level03.lesson08.task05;
+package test.level03.lesson08.task05;
 
 /* Чистая любовь
 Ввести с клавиатуры три имени, вывести на экран надпись:

@@ -1,4 +1,4 @@
-package com.javarush.test.level03.lesson06.task04;
+package test.level03.lesson06.task04;
 
 /* Экранирование символов
 Про экранирование символов в Java читайте в дополнительном материале к лекции.

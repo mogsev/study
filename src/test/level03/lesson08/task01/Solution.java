@@ -1,4 +1,4 @@
-package com.javarush.test.level03.lesson08.task01;
+package test.level03.lesson08.task01;
 
 /* Как захватить мир
 Ввести с клавиатуры число и имя, вывести на экран строку:

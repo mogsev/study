@@ -1,4 +1,4 @@
-package com.javarush.test.level03.lesson08.task02;
+package test.level03.lesson08.task02;
 
 /* Зарплата через 5 лет
 Ввести с клавиатуры Имя и два числа, вывести надпись:

@@ -1,4 +1,4 @@
-package com.javarush.test.level02.lesson08.task03;
+package test.level02.lesson08.task03;
 
 /* Минимум трех чисел
 Написать функцию, которая вычисляет минимум из трёх чисел.

@@ -1,4 +1,4 @@
-package com.javarush.test.level02.lesson08.task06;
+package test.level02.lesson08.task06;
 
 /* Вывод текста на экран
 Написать функцию, которая выводит переданную строку (слово) на экран три раза, но в одной строке.

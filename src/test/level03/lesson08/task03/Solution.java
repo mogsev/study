@@ -1,4 +1,4 @@
-package com.javarush.test.level03.lesson08.task03;
+package test.level03.lesson08.task03;
 
 /* Скромность украшает человека
 Ввести с клавиатуры имя и вывести надпись:

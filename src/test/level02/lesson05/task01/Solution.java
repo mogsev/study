@@ -1,4 +1,4 @@
-package com.javarush.test.level02.lesson05.task01;
+package test.level02.lesson05.task01;
 
 /* Не бейте меня!
 Напиши программу, которая выводит на экран надпись «Не бейте меня!.. Я предам кого угодно!» 3 раза.

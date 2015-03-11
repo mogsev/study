@@ -1,4 +1,4 @@
-package com.javarush.test.level02.lesson08.task01;
+package test.level02.lesson08.task01;
 
 /* Минимум двух чисел
 Написать функцию, которая возвращает минимум из двух чисел.

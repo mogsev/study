@@ -1,4 +1,4 @@
-package com.javarush.test.level02.lesson05.task02;
+package test.level02.lesson05.task02;
 
 /* Пока я командую...
 Напиши программу, которая выводит на экран надпись «Пока я командую, любая миссия суицидальная».

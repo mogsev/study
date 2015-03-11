@@ -1,4 +1,4 @@
-package com.javarush.test.level02.lesson03.task01;
+package test.level02.lesson03.task01;
 
 /* Он напрашивается
 Напиши программу, которая выводит на экран надпись: «Он напрашивается на сгибание!».

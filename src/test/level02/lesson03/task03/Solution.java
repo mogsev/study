@@ -1,4 +1,4 @@
-package com.javarush.test.level02.lesson03.task03;
+package test.level02.lesson03.task03;
 
 /* Мне так плохо!
 Напиши программу, которая выводит на экран надпись: «Мне так плохо! Хочу, чтобы все умерли!».

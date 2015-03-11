@@ -1,4 +1,4 @@
-package com.javarush.test.level02.lesson08.task02;
+package test.level02.lesson08.task02;
 
 /* Максимум двух чисел
 Написать функцию, которая вычисляет максимум из двух чисел.

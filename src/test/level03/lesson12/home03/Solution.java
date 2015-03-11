@@ -1,4 +1,4 @@
-package com.javarush.test.level03.lesson12.home03;
+package test.level03.lesson12.home03;
 
 /* Я буду зарабатывать $50 в час
 Ввести с клавиатуры число n.

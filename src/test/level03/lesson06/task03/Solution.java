@@ -1,4 +1,4 @@
-package com.javarush.test.level03.lesson06.task03;
+package test.level03.lesson06.task03;
 
 /* Семь цветов радуги
 Выведи на экран текст - семь цветов радуги.

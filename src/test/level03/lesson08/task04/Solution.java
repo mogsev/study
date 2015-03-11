@@ -1,4 +1,4 @@
-package com.javarush.test.level03.lesson08.task04;
+package test.level03.lesson08.task04;
 
 /* Спонсор - это звучит гордо
 Ввести с клавиатуры два имени и вывести надпись:

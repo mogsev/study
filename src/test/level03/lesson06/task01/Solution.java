@@ -1,4 +1,4 @@
-package com.javarush.test.level03.lesson06.task01;
+package test.level03.lesson06.task01;
 
 /* Мама мыла раму
 Вывести на экран все возможные комбинации слов «Мама», «Мыла», «Раму».
