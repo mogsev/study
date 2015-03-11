@@ -1,4 +1,4 @@
-package com.javarush.test.level12.lesson09.task03;
+package test.level12.lesson09.task03;
 
 /* Fly, Run, Swim для классов Dog, Fish, Bird, Airplane
 Есть public интерфейсы Fly(летать), Run(бежать/ездить), Swim(плавать).

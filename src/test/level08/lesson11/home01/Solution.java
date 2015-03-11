@@ -1,4 +1,4 @@
-package com.javarush.test.level08.lesson11.home01;
+package test.level08.lesson11.home01;
 
 import java.util.HashSet;
 import java.util.Iterator;

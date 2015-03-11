@@ -1,4 +1,4 @@
-package com.javarush.test.level09.lesson08.task02;
+package test.level09.lesson08.task02;
 
 /* Перехватывание исключений
 1. Есть три исключения последовательно унаследованные от Exception:

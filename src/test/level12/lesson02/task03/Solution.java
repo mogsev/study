@@ -1,4 +1,4 @@
-package com.javarush.test.level12.lesson02.task03;
+package test.level12.lesson02.task03;
 
 /* Кот от кота, а собака от собаки
 Переопределить метод getChild в классах Cat(кот) и Dog(собака), чтобы кот порождал кота, а собака – собаку.

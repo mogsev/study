@@ -1,4 +1,4 @@
-package com.javarush.test.level09.lesson11.home01;
+package test.level09.lesson11.home01;
 
 /* Деление на ноль
 Создай метод public static void divisionByZero, в котором подели любое число на ноль и выведи на экран результат деления.

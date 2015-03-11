@@ -1,4 +1,4 @@
-package com.javarush.test.level09.lesson08.task05;
+package test.level09.lesson08.task05;
 
 /* Перехват unchecked исключений
 В методе processExceptions обработайте все unchecked исключения.

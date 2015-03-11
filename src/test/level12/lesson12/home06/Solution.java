@@ -1,4 +1,4 @@
-package com.javarush.test.level12.lesson12.home06;
+package test.level12.lesson12.home06;
 
 /* Fly, Run, Climb для классов Cat, Dog, Tiger, Duck
 1. Внутри класса Solution создай интерфейс public interface Fly(летать) с методом void fly().

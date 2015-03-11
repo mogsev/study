@@ -1,4 +1,4 @@
-package com.javarush.test.level11.lesson11.home07;
+package test.level11.lesson11.home07;
 
 /* Вторая правильная «цепочка наследования»
 Расставь правильно «цепочку наследования» в классах: Carnivora (плотоядное животное), Cow (корова), Dog(собака), Pig(свинья), Animal (животное).

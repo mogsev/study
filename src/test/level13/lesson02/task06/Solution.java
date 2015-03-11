@@ -1,4 +1,4 @@
-package com.javarush.test.level13.lesson02.task06;
+package test.level13.lesson02.task06;
 
 /* Баг в initializeIdAndName
 1. Подумать, что в программе неправильно.

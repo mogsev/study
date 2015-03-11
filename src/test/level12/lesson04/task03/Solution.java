@@ -1,4 +1,4 @@
-package com.javarush.test.level12.lesson04.task03;
+package test.level12.lesson04.task03;
 
 /* Пять методов print с разными параметрами
 Написать пять методов print с разными параметрами.

@@ -1,4 +1,4 @@
-package com.javarush.test.level07.lesson06.task03;
+package test.level07.lesson06.task03;
 
 /* 5 строчек в обратном порядке
 1. Создай список строк.

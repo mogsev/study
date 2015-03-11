@@ -1,4 +1,4 @@
-package com.javarush.test.level08.lesson03.task01;
+package test.level08.lesson03.task01;
 
 /* HashSet из растений
 Создать коллекцию HashSet с типом элементов String.

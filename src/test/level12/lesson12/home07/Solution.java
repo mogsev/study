@@ -1,4 +1,4 @@
-package com.javarush.test.level12.lesson12.home07;
+package test.level12.lesson12.home07;
 
 /* Fly, Run, Swim для классов Duck, Penguin, Toad
 Есть интерфейсы Fly(летать), Swim(плавать), Run(бегать).

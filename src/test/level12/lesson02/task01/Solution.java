@@ -1,4 +1,4 @@
-package com.javarush.test.level12.lesson02.task01;
+package test.level12.lesson02.task01;
 
 /* Я не корова, Я - кит.
 Переопределить метод getName в классе Whale(Кит), чтобы программа выдавала:

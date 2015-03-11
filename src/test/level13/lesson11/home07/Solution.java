@@ -1,4 +1,4 @@
-package com.javarush.test.level13.lesson11.home07;
+package test.level13.lesson11.home07;
 
 /* Интерфейс SimpleObject
 1. Создай класс StringObject.

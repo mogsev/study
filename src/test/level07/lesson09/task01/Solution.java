@@ -1,4 +1,4 @@
-package com.javarush.test.level07.lesson09.task01;
+package test.level07.lesson09.task01;
 
 
 import java.io.BufferedReader;

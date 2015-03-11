@@ -1,4 +1,4 @@
-package com.javarush.test.level10.lesson04.task05;
+package test.level10.lesson04.task05;
 
 /* Задача №5 на преобразование целых типов
 Расставь где нужно оператор приведения типа:

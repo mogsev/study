@@ -1,4 +1,4 @@
-package com.javarush.test.level10.lesson11.home04;
+package test.level10.lesson11.home04;
 
 /* Большая зарплата
 Вывести на экран надпись «Я не хочу изучать Java, я хочу большую зарплату» 40 раз по образцу.

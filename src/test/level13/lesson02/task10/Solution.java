@@ -1,4 +1,4 @@
-package com.javarush.test.level13.lesson02.task10;
+package test.level13.lesson02.task10;
 
 /* CleverMan и SmartGirl
 1. Добавь интерфейсы Secretary и Boss к классам CleverMan и SmartGirl. По одному на каждый. Подумай, кому какой.

@@ -1,4 +1,4 @@
-package com.javarush.test.level13.lesson04.task01;
+package test.level13.lesson04.task01;
 
 /* Переводчик с английского
 1. Создать класс EnglishTranslator, который наследуется от Translator.

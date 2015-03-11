@@ -1,4 +1,4 @@
-package com.javarush.test.level10.lesson11.home03;
+package test.level10.lesson11.home03;
 
 /* Правильный ответ: d=1.0
 Добавить одну операцию по преобразованию типа, чтобы получался ответ: d=1.0.

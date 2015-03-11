@@ -1,4 +1,4 @@
-package com.javarush.test.level12.lesson12.home09;
+package test.level12.lesson12.home09;
 
 /* Родитель класса CTO
 Добавь такой класс-родитель к классу CTO(технический директор), чтобы класс перестал быть абстрактным.

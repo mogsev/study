@@ -1,4 +1,4 @@
-package com.javarush.test.level13.lesson11.home01;
+package test.level13.lesson11.home01;
 
 /* Некорректные строки
 Удали все некорректные строки в интерфейсе Button.

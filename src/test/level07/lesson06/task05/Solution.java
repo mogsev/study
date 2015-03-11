@@ -1,4 +1,4 @@
-package com.javarush.test.level07.lesson06.task05;
+package test.level07.lesson06.task05;
 
 /* Удали последнюю строку и вставь её в начало
 1. Создай список строк.

@@ -1,7 +1,6 @@
-package com.javarush.test.level08.lesson06.task03;
+package test.level08.lesson06.task03;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 

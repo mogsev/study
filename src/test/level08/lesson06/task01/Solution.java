@@ -1,4 +1,4 @@
-package com.javarush.test.level08.lesson06.task01;
+package test.level08.lesson06.task01;
 
 import java.util.*;
 

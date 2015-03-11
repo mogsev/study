@@ -1,4 +1,4 @@
-package com.javarush.test.level13.lesson02.task01;
+package test.level13.lesson02.task01;
 
 /* Пиво
 1. Подумай, какой из двух интерфейсов нужно реализовать в классе Beer.

@@ -1,4 +1,4 @@
-package com.javarush.test.level11.lesson11.home09;
+package test.level11.lesson11.home09;
 
 /* Четвертая правильная «цепочка наследования»
 Расставь правильно «цепочку наследования» в классах: House (дом), Cat (кот), Dog(собака), Car (машина).

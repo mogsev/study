@@ -1,4 +1,4 @@
-package com.javarush.test.level11.lesson06.task03;
+package test.level11.lesson06.task03;
 
 /* В гостях у бабушки
 Написать шесть классов: Animal (животное), Cow(корова) и Pig(свинья), Sheep(овца), Bull(бык), Goat(козел).

@@ -1,4 +1,4 @@
-package com.javarush.test.level12.lesson12.bonus03;
+package test.level12.lesson12.bonus03;
 
 /* Задача по алгоритмам
 Написать метод, который возвращает минимальное число в массиве и его позицию (индекс).

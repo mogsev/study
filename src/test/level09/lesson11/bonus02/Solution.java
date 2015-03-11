@@ -1,4 +1,4 @@
-package com.javarush.test.level09.lesson11.bonus02;
+package test.level09.lesson11.bonus02;
 
 import java.io.*;
 

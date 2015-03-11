@@ -1,4 +1,4 @@
-package com.javarush.test.level11.lesson06.task05;
+package test.level11.lesson06.task05;
 
 /* ИТ-компания
 Написать девять классов: Worker(сотрудник), Clerk (клерк), IT (ИТ-специалист), Programmer(программист), ProjectManager(менеджер проекта),

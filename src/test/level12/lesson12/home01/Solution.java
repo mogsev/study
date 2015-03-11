@@ -1,4 +1,4 @@
-package com.javarush.test.level12.lesson12.home01;
+package test.level12.lesson12.home01;
 
 /* Метод getName в классе Cat
 Переопредели метод getName в классе Cat так, чтобы программа выдавала на экран надпись

@@ -1,4 +1,4 @@
-package com.javarush.test.level08.lesson11.home02;
+package test.level08.lesson11.home02;
 
 import java.util.Date;
 import java.util.HashSet;

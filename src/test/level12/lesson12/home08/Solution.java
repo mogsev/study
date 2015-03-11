@@ -1,4 +1,4 @@
-package com.javarush.test.level12.lesson12.home08;
+package test.level12.lesson12.home08;
 
 /* Интерфейсы к классу Human
 Добавь как можно больше интерфейсов к классу Human, но чтобы он не стал абстрактным классом.

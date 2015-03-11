@@ -1,4 +1,4 @@
-package com.javarush.test.level08.lesson08.task01;
+package test.level08.lesson08.task01;
 
 import java.util.HashSet;
 import java.util.Set;

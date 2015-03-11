@@ -1,4 +1,4 @@
-package com.javarush.test.level13.lesson02.task09;
+package test.level13.lesson02.task09;
 
 /* Наследование интерфейса
 1. Создать интерфейс Movable с методом speed.

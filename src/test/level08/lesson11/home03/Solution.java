@@ -1,4 +1,4 @@
-package com.javarush.test.level08.lesson11.home03;
+package test.level08.lesson11.home03;
 
 import java.util.HashMap;
 import java.util.Map;

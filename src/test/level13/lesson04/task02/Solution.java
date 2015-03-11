@@ -1,4 +1,4 @@
-package com.javarush.test.level13.lesson04.task02;
+package test.level13.lesson04.task02;
 
 /* Исправление кода
 Исправить код так, чтобы программа выполнялась и выводила "Я переводчик с английского".

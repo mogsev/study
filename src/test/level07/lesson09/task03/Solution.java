@@ -1,9 +1,6 @@
-package com.javarush.test.level07.lesson09.task03;
+package test.level07.lesson09.task03;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collections;
 
 /* Слово «именно»
 1. Создай список из слов «мама», «мыла», «раму».

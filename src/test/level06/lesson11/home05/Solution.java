@@ -1,4 +1,4 @@
-package com.javarush.test.level06.lesson11.home05;
+package test.level06.lesson11.home05;
 
 /* Есть новые идеи? Подумаем...
 1. В классе Solution создать public статический класс Idea

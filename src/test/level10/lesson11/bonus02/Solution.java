@@ -1,4 +1,4 @@
-package com.javarush.test.level10.lesson11.bonus02;
+package test.level10.lesson11.bonus02;
 
 import java.io.*;
 import java.util.HashMap;

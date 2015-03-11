@@ -1,4 +1,4 @@
-package com.javarush.test.level12.lesson04.task04;
+package test.level12.lesson04.task04;
 
 /* Три метода возвращают минимальное из двух переданных в него чисел
 Написать public static методы: int min(int, int), long min(long, long), double min(double, double).

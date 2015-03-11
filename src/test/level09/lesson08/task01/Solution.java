@@ -1,4 +1,4 @@
-package com.javarush.test.level09.lesson08.task01;
+package test.level09.lesson08.task01;
 
 import java.io.FileNotFoundException;
 import java.net.URISyntaxException;

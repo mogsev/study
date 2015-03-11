@@ -1,4 +1,4 @@
-package com.javarush.test.level12.lesson06.task05;
+package test.level12.lesson06.task05;
 
 /* Классы Cat и Dog от Pet
 Унаследуй классы Cat и Dog от Pet.

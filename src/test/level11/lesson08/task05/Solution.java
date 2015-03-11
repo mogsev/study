@@ -1,4 +1,4 @@
-package com.javarush.test.level11.lesson08.task05;
+package test.level11.lesson08.task05;
 
 /* Добавь недостающие переменные
 Посмотри внимательно на методы и добавь недостающие переменные.

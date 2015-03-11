@@ -1,4 +1,4 @@
-package com.javarush.test.level11.lesson08.task03;
+package test.level11.lesson08.task03;
 
 /* Ничего не поменяешь
 Скрыть все внутренние переменные класса Cat, а также методы, позволяющие менять внутреннее состояние объектов класса Cat.

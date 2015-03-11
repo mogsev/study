@@ -1,4 +1,4 @@
-package com.javarush.test.level12.lesson12.home04;
+package test.level12.lesson12.home04;
 
 /* Что это? «Кот», «Тигр», «Лев», «Бык», «хз»
 Напиши метод, который определяет, какой объект передали в него.

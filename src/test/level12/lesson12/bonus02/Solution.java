@@ -1,4 +1,4 @@
-package com.javarush.test.level12.lesson12.bonus02;
+package test.level12.lesson12.bonus02;
 
 /* Нужно добавить в программу новую функциональность
 Сделать класс Pegas(пегас) на основе класса Horse(лошадь) и интерфейса Fly(летать).

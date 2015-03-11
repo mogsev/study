@@ -1,9 +1,8 @@
-package com.javarush.test.level07.lesson09.task02;
+package test.level07.lesson09.task02;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collections;
 
 /* 5 слов в обратном порядке
 Введи с клавиатуры 5 слов в список строк. Выведи их в обратном порядке.

@@ -1,4 +1,4 @@
-package com.javarush.test.level13.lesson11.home03;
+package test.level13.lesson11.home03;
 
 /* Чтение файла
 1. Считать с консоли имя файла.

@@ -1,4 +1,4 @@
-package com.javarush.test.level13.lesson11.home02;
+package test.level13.lesson11.home02;
 
 /* Погода
 1. В классе Today реализовать интерфейс Weather.

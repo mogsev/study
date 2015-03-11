@@ -1,4 +1,4 @@
-package com.javarush.test.level13.lesson11.bonus01;
+package test.level13.lesson11.bonus01;
 
 /* Сортировка четных чисел из файла
 1. Ввести имя файла с консоли.

@@ -1,4 +1,4 @@
-package com.javarush.test.level12.lesson02.task02;
+package test.level12.lesson02.task02;
 
 /* Ничего не выводится на экран
 Переопределить метод getName в классе Whale(Кит), чтобы программа ничего не выдавала на экран.

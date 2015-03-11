@@ -1,4 +1,4 @@
-package com.javarush.test.level08.lesson11.home06;
+package test.level08.lesson11.home06;
 
 /* Вся семья в сборе
 1. Создай класс Human с полями имя (String), пол (boolean), возраст (int), дети (ArrayList<Human>).

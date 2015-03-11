@@ -1,4 +1,4 @@
-package com.javarush.test.level13.lesson02.task04;
+package test.level13.lesson02.task04;
 
 /* Selectable и Updatable
 1. Создай класс Screen.

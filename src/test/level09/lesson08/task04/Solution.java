@@ -1,4 +1,4 @@
-package com.javarush.test.level09.lesson08.task04;
+package test.level09.lesson08.task04;
 
 import java.io.IOException;
 import java.rmi.RemoteException;

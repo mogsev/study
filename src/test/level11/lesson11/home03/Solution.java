@@ -1,4 +1,4 @@
-package com.javarush.test.level11.lesson11.home03;
+package test.level11.lesson11.home03;
 
 /* Эволюция
 Написать четыре класса: Fish(Рыбы), Animal(Животные), Ape(Обезьяны), Human (Человек).

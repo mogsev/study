@@ -1,4 +1,4 @@
-package com.javarush.test.level08.lesson03.task02;
+package test.level08.lesson03.task02;
 
 /* HashMap из 10 пар
 Создать коллекцию HashMap<String, String>, занести туда 10 пар строк:

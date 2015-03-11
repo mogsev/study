@@ -1,4 +1,4 @@
-package com.javarush.test.level12.lesson12.home03;
+package test.level12.lesson12.home03;
 
 /* Добавь один метод в класс Cat
 Добавь один метод в класс Cat так, чтобы программа ничего не выводила на экран.

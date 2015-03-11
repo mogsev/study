@@ -1,4 +1,4 @@
-package com.javarush.test.level13.lesson11.home09;
+package test.level13.lesson11.home09;
 
 import java.awt.*;
 

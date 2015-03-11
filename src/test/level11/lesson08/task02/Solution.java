@@ -1,4 +1,4 @@
-package com.javarush.test.level11.lesson08.task02;
+package test.level11.lesson08.task02;
 
 /* Доступ есть
 Скрыть все внутренние переменные класса Cat, но только те, к которым остается доступ с помощью методов.

@@ -1,6 +1,4 @@
-package com.javarush.test.level10.lesson11.home08;
-
-import com.javarush.test.level06.lesson08.task05.StringHelper;
+package test.level10.lesson11.home08;
 
 import java.util.ArrayList;
 

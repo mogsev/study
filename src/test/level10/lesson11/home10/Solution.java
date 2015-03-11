@@ -1,4 +1,4 @@
- package com.javarush.test.level10.lesson11.home10;
+ package test.level10.lesson11.home10;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

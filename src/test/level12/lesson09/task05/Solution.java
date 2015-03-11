@@ -1,4 +1,4 @@
-package com.javarush.test.level12.lesson09.task05;
+package test.level12.lesson09.task05;
 
 /* Класс Human и интерфейсы Run, Swim
 Напиши public класс Human(человек) и  public интерфейсы Run(бежать/ездить), Swim(плавать).

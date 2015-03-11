@@ -1,4 +1,4 @@
-package com.javarush.test.level07.lesson06.task02;
+package test.level07.lesson06.task02;
 
 /* 5 строчек: «101», «102», «103», «104», «105»
 1. Создай список строк.

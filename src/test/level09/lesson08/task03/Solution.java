@@ -1,4 +1,4 @@
-package com.javarush.test.level09.lesson08.task03;
+package test.level09.lesson08.task03;
 
 import java.io.CharConversionException;
 import java.io.IOException;

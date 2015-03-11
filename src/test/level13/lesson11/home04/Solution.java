@@ -1,4 +1,4 @@
-package com.javarush.test.level13.lesson11.home04;
+package test.level13.lesson11.home04;
 
 /* Запись в файл
 1. Прочесть с консоли имя файла.

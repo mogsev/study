@@ -1,4 +1,4 @@
-package com.javarush.test.level08.lesson06.task04;
+package test.level08.lesson06.task04;
 
 import java.util.ArrayList;
 import java.util.Date;

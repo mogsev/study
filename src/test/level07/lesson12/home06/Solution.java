@@ -1,4 +1,4 @@
-package com.javarush.test.level07.lesson12.home06;
+package test.level07.lesson12.home06;
 
 /* Семья
 Создай класс Human с полями имя(String), пол(boolean),возраст(int), отец(Human), мать(Human). Создай объекты и заполни их так, чтобы получилось: Два дедушки, две бабушки, отец, мать, трое детей. Вывести объекты на экран.

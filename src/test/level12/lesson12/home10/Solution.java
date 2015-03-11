@@ -1,4 +1,4 @@
-package com.javarush.test.level12.lesson12.home10;
+package test.level12.lesson12.home10;
 
 /* Метод, который выводит на экран число 10
 Добавь еще один метод, чтобы программа выводила на экран число 10.

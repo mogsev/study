@@ -1,4 +1,4 @@
-package com.javarush.test.level08.lesson06.task02;
+package test.level08.lesson06.task02;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

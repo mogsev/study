@@ -1,4 +1,4 @@
-package com.javarush.test.level06.lesson11.home01;
+package test.level06.lesson11.home01;
 
 /* Класс Cat и статическая переменная catCount
 В классе Cat создай статическую переменную public int catCount.
