@@ -1,4 +1,4 @@
-package com.javarush.test.level14.lesson02.task01;
+package testjob.level14.lesson02.task01;
 
 /* Bingo
 Исправь строчку 'Object o = new Pet();' в методе main так, чтобы программа вывела "Bingo!"

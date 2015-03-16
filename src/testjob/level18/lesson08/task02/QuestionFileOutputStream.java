@@ -10,8 +10,8 @@ import java.io.*;
 3. Если считанная строка равна [Д], то закрыть поток
 4. Если считанная строка не равна [Д], то не закрывать поток
 */
-
+/*
 public class QuestionFileOutputStream implements AmigoOutputStream {
 
 }
-
+*/

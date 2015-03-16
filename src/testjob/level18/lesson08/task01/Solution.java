@@ -1,10 +1,10 @@
-package com.javarush.test.level18.lesson08.task01;
+package testjob.level18.lesson08.task01;
 
 /* Wrapper (Decorator)
 Разберись, что делает программа
 Аналогично классу DecoratorRunnableImpl создай класс DecoratorMyRunnableImpl
 */
-
+/*
 public class Solution {
 
     public static void main(String[] args) {
@@ -33,3 +33,4 @@ public class Solution {
     }
 
 }
+*/
