@@ -8,4 +8,9 @@ public class BelarusianHen extends Hen {
     public int getCountOfEggsPerMonth() {
         return 12;
     }
+
+    @Override
+    public String getDescription() {
+        return super.getDescription() + " " + Country.BELARUS + " Я несу " + this.getCountOfEggsPerMonth() + " яиц в месяц.";
+    }
 }

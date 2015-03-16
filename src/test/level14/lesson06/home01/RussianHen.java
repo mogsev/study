@@ -9,4 +9,9 @@ public class RussianHen extends Hen {
     public int getCountOfEggsPerMonth() {
         return 5;
     }
+
+    @Override
+    public String getDescription() {
+        return super.getDescription() + " " + Country.RUSSIA + " Я несу " + this.getCountOfEggsPerMonth() + " яиц в месяц.";
+    }
 }
