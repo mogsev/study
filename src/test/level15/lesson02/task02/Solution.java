@@ -12,6 +12,19 @@ package test.level15.lesson02.task02;
 
 public class Solution {
     //добавьте классы Goose и Dragon тут
+    public static class Goose extends SmallAnimal {
+        @Override
+        public String getSize() {
+            return "Гусь маленький, " + super.getSize();
+        }
+    }
+
+    public static class Dragon extends BigAnimal {
+        @Override
+        public String getSize() {
+            return "Дракон большой, " + super.getSize();
+        }
+    }
 
     public static class BigAnimal {
         protected String getSize() {
