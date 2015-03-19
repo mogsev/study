@@ -1,5 +1,5 @@
 package test.level15.lesson12.home07;
 
 public class Constants {
- //   public static String FILE_NAME = /* add your path to source file here*/;
+    public static String FILE_NAME = "d:/zhenya/test.txt";
 }
