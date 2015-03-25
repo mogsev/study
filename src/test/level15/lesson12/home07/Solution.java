@@ -1,6 +1,7 @@
 package test.level15.lesson12.home07;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -18,12 +19,10 @@ public class Solution {
         try {
             Scanner scanner = new Scanner(new File(Constants.FILE_NAME));
             while (scanner.hasNextLine()) {
-                lines.add(scanner.next());
+                lines.add(scanner.nextLine());
             }
             scanner.close();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
             e.printStackTrace();
         }
     }
