@@ -47,6 +47,7 @@ public class Solution {
             stepNumber++;
             //add your code here - добавь код тут
             System.out.println(owner.getName() + " делает шаг №" + stepNumber + "!");
+            Thread.sleep((long) (1000/owner.getSpeed()));
         }
     }
 
