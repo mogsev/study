@@ -11,12 +11,18 @@ package test.level16.lesson10.task02;
 PS: метод sleep выбрасывает InterruptedException.
 */
 
+import java.util.Date;
+
 public class Solution {
-    public static volatile int countSeconds = 3;
+    public static volatile int countSeconds = 5;
 
     public static void main(String[] args) throws InterruptedException {
         RacingClock clock = new RacingClock();
         //add your code here - добавь код тут
+        Thread.sleep(3500);
+        if (clock.isAlive()) {
+            clock.interrupt();
+        }
     }
 
     public static class RacingClock extends Thread {
@@ -26,6 +32,19 @@ public class Solution {
 
         public void run() {
             //add your code here - добавь код тут
+            try {
+                for (; countSeconds >= 0; countSeconds--) {
+                    if (countSeconds == 0) {
+                        System.out.print("Марш!");
+                    } else {
+                        System.out.print(countSeconds + " ");
+                    }
+                    Thread.sleep(1000);
+                }
+            } catch (InterruptedException ex) {
+                System.out.print("Прервано!");
+            }
         }
     }
 }
+
