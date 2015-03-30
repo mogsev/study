@@ -27,7 +27,6 @@ public class Solution {
             String name = t.getName();
             System.out.println("name=" + name);
             //add sleep here - добавь sleep тут
-
             try {
                 sleep(1);
             } catch (InterruptedException e) {
