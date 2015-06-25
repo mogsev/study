@@ -25,10 +25,12 @@ public class Solution {
     }
 
     public static void systemOutPrintln(String fileName) throws InterruptedException {
+        /**
         ReadFileInterface f = new ReadFileThread();
         f.setFileName(fileName);
         f.start();
         System.out.println(f.getFileContent());
+         */
     }
 
     public static interface ReadFileInterface {
